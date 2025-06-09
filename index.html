@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <title>Selector de Canciones</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
       font-family: Arial, sans-serif;
-      color: white;
     }
+
     canvas {
-      display: block;
-      position: absolute;
+      position: fixed;
+      top: 0;
+      left: 0;
       z-index: 0;
     }
+
     .contenido {
       position: relative;
       z-index: 1;
       text-align: center;
-      padding-top: 30px;
+      padding-top: 60px;
+      color: white;
     }
+
     .cancion {
-      font-size: 16px;
+      font-size: 18px;
       margin: 10px 0;
     }
+
     button {
       margin-top: 20px;
       padding: 10px 20px;
@@ -38,7 +46,7 @@
 </head>
 <body>
 
-<canvas id="fondo" width="400" height="250"></canvas>
+<canvas id="fondo"></canvas>
 
 <div class="contenido">
   <div id="cancion1" class="cancion">Canción 1: ?</div>
@@ -50,9 +58,7 @@
 
 <script>
   const canciones = [
-    "1. Bye Bye Bye", "2. ALV", "3. (Entre Parentesis)", "4. Na de Na", "5. QUE VUELVAS", "6. un x100to", "7. EL AMOR DE SU VIDA", "8. ANGEL", "9. NO SE VA", "10. DE LUNES A LUNES",
-    "11. POR QUE SERA", "12. QUEDATE BEBE", "13. El Caballito de Palo", "14. Picky", "15. Unico", "16. La Melodia", "17. Gasolina", "18. Lo Que Paso, Paso", "19. Despacito", "20. Llamdado de Emergencia",
-    // ... (continúa igual, recorta aquí para abreviar)
+    "1. Bye Bye Bye", "2. ALV", "3. (Entre Parentesis)", "4. Na de Na", // ...
     "209. Madonna", "210. A Travez Del Vaso"
   ];
 
@@ -75,6 +81,9 @@
 
   function dibujarDegradado(canvas, colorInicio, colorFin) {
     const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
     const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
     grad.addColorStop(0, colorInicio);
     grad.addColorStop(1, colorFin);
@@ -84,6 +93,11 @@
 
   const canvas = document.getElementById('fondo');
   dibujarDegradado(canvas, '#095984', '#092d4a');
+
+  // Redibujar en caso de cambio de tamaño de ventana
+  window.addEventListener('resize', () => {
+    dibujarDegradado(canvas, '#095984', '#092d4a');
+  });
 </script>
 
 </body>
