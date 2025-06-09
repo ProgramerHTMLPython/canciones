@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Selector de Canciones</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    canvas {
+      display: block;
+      position: absolute;
+      z-index: 0;
+    }
+    .contenido {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 30px;
+    }
+    .cancion {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fondo" width="400" height="250"></canvas>
+
+<div class="contenido">
+  <div id="cancion1" class="cancion">Canción 1: ?</div>
+  <div id="cancion2" class="cancion">Canción 2: ?</div>
+  <div id="cancion3" class="cancion">Canción 3: ?</div>
+  <div id="cancion4" class="cancion">Canción 4: ?</div>
+  <button onclick="elegirCanciones()">Elegir Canciones</button>
+</div>
+
+<script>
+  const canciones = [
+    "1. Bye Bye Bye", "2. ALV", "3. (Entre Parentesis)", "4. Na de Na", "5. QUE VUELVAS", "6. un x100to", "7. EL AMOR DE SU VIDA", "8. ANGEL", "9. NO SE VA", "10. DE LUNES A LUNES",
+    "11. POR QUE SERA", "12. QUEDATE BEBE", "13. El Caballito de Palo", "14. Picky", "15. Unico", "16. La Melodia", "17. Gasolina", "18. Lo Que Paso, Paso", "19. Despacito", "20. Llamdado de Emergencia",
+    // ... (continúa igual, recorta aquí para abreviar)
+    "209. Madonna", "210. A Travez Del Vaso"
+  ];
+
+  function elegirCanciones() {
+    const seleccionadas = [];
+    const usadas = new Set();
+
+    while (seleccionadas.length < 4) {
+      const index = Math.floor(Math.random() * canciones.length);
+      if (!usadas.has(index)) {
+        usadas.add(index);
+        seleccionadas.push(canciones[index]);
+      }
+    }
+
+    for (let i = 0; i < 4; i++) {
+      document.getElementById(`cancion${i+1}`).textContent = `Canción ${i+1}: ${seleccionadas[i]}`;
+    }
+  }
+
+  function dibujarDegradado(canvas, colorInicio, colorFin) {
+    const ctx = canvas.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    grad.addColorStop(0, colorInicio);
+    grad.addColorStop(1, colorFin);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  const canvas = document.getElementById('fondo');
+  dibujarDegradado(canvas, '#095984', '#092d4a');
+</script>
+
+</body>
+</html>
