@@ -23,24 +23,24 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      padding-top: 60px;
+      padding-top: 100px;
       color: white;
     }
 
     .cancion {
-      font-size: 18px;
-      margin: 10px 0;
+      font-size: 32px;
+      margin: 20px 0;
     }
 
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      margin-top: 40px;
+      padding: 20px 40px;
       background-color: black;
       color: white;
       border: none;
-      font-size: 16px;
+      font-size: 24px;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -57,29 +57,30 @@
 </div>
 
 <script>
-  const canciones = [
-    "1. Bye Bye Bye", "2. ALV", "3. (Entre Parentesis)", "4. Na de Na", "5. QUE VUELVAS", "6. un x100to", "7. EL AMOR DE SU VIDA", "8. ANGEL", "9. NO SE VA", "10. DE LUNES A LUNES",
-    "11. POR QUE SERA", "12. QUEDATE BEBE", "13. El Caballito de Palo", "14. Picky", "15. Unico", "16. La Melodia", "17. Gasolina", "18. Lo Que Paso, Paso", "19. Despacito", "20. Llamdado de Emergencia",
-    "21. Ella Me Lev`anto", "22. Con Calma", "23. La Rompe Corazones", "24. Dura", "25. Que Tire Pa Lante", "26. BOMBON", "27. Llegamos A La Disco", "28. Sensacion de Bloque", "29. Me Porto Bonito", "30. Callaita",
-    "31. El Toxico", "32. Que Onda Perdida", "33. Ya Superame", "34. En Tu Perra Vida", "35. SABOR FRESA", "36. HARLEY QUINN", "37. Bebe Dame", "38. Primera Cita", "39. Aviso Importante", "40. La Chona",
-    "41. LADY GAGA", "42. TULUM", "43. Ella Baila Sola", "44. La Bebe - Remix", "45. Me Niegro", "46. Criminal", "47. Dile Que Tu Me Quieres", "48. Escapate Conmigo", "49. Te Bote - Remix", "50. Corazon De Seda",
-    "51. Rakata", "52. Me Rehuso", "53. Dembow", "54. X", "55. Hasta El Amanecer", "56. El Perdon", "57. Perro Fiel", "58. Travesuras", "59. Es Un Secreto", "60. Si No Le Contesto",
-    "61. Por Que Te Demoras?", "62. Fanatica De Lo Sensual", "63. Hooka", "64. Candy", "65. Guatauba", "66. Freakytona", "67. Mi Vecinita", "68. Shaky Shaky - Remix", "69. Shaky Shaky", "70. Hula Hoop",
-    "71. Rompe", "72. Borra Cassette", "73. Chantaje", "74. Felices Los 4", "75. La Gozadera", "76. 24K Magic", "77. Ginza", "78. La Bachata", "79. 6 AM", "80. Tu Foto",
-    "81. El Farsante", "82. Ella Quiere Bailar - Remix", "83. Bonita", "84. Calypso", "85. China", "86. Que Va", "87. MINIMI", "88. Perdoname", "89. Salio El Sol", "90. Taboo",
-    "91. La Noche Mas Linda", "92. Pa' Que Retozen", "93. El Señor De La Noche", "94. Propuesta Indecente", "95. Still D.R.E", "96. Smooth Criminal", "97. They Don't Care About Us", "98. Uptown Funk", "99. 17 Años", "100. El Liston De Tu Pelo",
-    "101. La Bomba", "102. Lola", "103. Thriller", "104. La Quimica", "105. Menea Tu Chapa", "106. Tiempos De Plan B", "107. Rap God", "108. Harder, Better, Faster, Stronger", "109. LA FALDA", "110. LALA",
-    "111. La Chancleta", "112. Without Me", "113. Godzilla", "114. Besame", "115. Everbody Wants To Rule The World", "116. Bella", "117. My Name Is", "118. Mi Gente", "119. Agua", "120. Ella Quiere HMM... Haa... HMM...",
-    "121. Atrevete-Te-Te", "122. Darte Un Beso", "123. Beat It", "124. Lola", "125. La Diabla", "126. La Victima", "127. Corazon de Piedra", "128. Rey Sin Reyna", "129. El Beneficio De La Duda", "130. Tu No Vive Asi",
-    "131. Get Lucky", "132. Dillom: Bzrp Music Sessions, Vol. 9", "133. Quevedo: Bzrp Music Sessions, Vol. 52", "134. La Vencidad Del Vago", "135. Jalebi Baby", "136. Tu Boda", "137. Hecha Pa' Mi", "138. X SI VOLVEMOS", "139. NEL", "140. Si No Te Hubiera Conocido",
-    "141. Desesperados", "142. Ohnana", "143. UWAIE", "144. Grandes Ligas", "145. Chica Ideal", "146. Houdini", "147. QLONA", "148. Segun Quien", "149. FRESITA", "150. Titi Me Pregunto",
-    "151. PUNTO 40", "152. Vaquero - Remix", "153. Pepas", "154. El Envidioso", "155. Amor Platonico", "156. ¿Qué Te Parece?", "157. TE DESEO LO MEJOR", "158. Tu No Metes Cabra", "159. Yummy", "160. Şımarık",
-    "161. Mucho Pa Mi", "162. Pareja Del Año", "163. Bandoleros", "164. Tokyo Drift", "165. El Contagio", "166. Que Pedo", "167. Hubieramos", "168. Traiconera", "169. Bandida", "170. Mas Macarena",
-    "171. Macarena", "172. AMOR PROPIO", "173. Es Epico", "174. Visiones", "175. Tumba La Casa - Remix", "176. Swalla", "177. El Efecto", "178. El Tucanazo", "179. Ella Y Yo", "180. Permitame",
-    "181. QUEMA", "182. Uptown II", "183. Conspiraciones", "184. Choca", "185. AY MAMA", "186. Que Esta Pasando", "187. ME JALO", "188. Botella Tras Botella", "189. No Te Contaron Mal", "190. LOS CUADROS",
-    "191. Gangsta's Paradise", "192. En Privado", "193. Residente: Bzrp Music Sessions, Vol. 49", "194. Regalo De Dios", "195. Tusa", "196. The Bottom 3", "197. FE!N", "198. Una Lady Como Tu", "199. Por Esos Ojos", "200. Hip Hop Hooray",
-    "201. Shimmy Shimmy Ya", "202. INDUSTRY BABY", "203. Krippy Kush", "204. 7 DIAS", "205. LA PEOPLE", "206. GAVILAN II", "207. PRC", "208. PRESIDENTE", "209. Madonna", "210. A Travez Del Vaso",
-  ];
+const canciones = [
+  "1. Bye Bye Bye", "2. ALV", "3. (Entre Parentesis)", "4. Na de Na", "5. QUE VUELVAS", "6. un x100to", "7. EL AMOR DE SU VIDA", "8. ANGEL", "9. NO SE VA", "10. DE LUNES A LUNES",
+  "11. POR QUE SERA", "12. QUEDATE BEBE", "13. El Caballito de Palo", "14. Picky", "15. Unico", "16. La Melodia", "17. Gasolina", "18. Lo Que Paso, Paso", "19. Despacito", "20. Llamdado de Emergencia",
+  "21. Ella Me Lev`anto", "22. Con Calma", "23. La Rompe Corazones", "24. Dura", "25. Que Tire Pa Lante", "26. BOMBON", "27. Llegamos A La Disco", "28. Sensacion de Bloque", "29. Me Porto Bonito", "30. Callaita",
+  "31. El Toxico", "32. Que Onda Perdida", "33. Ya Superame", "34. En Tu Perra Vida", "35. SABOR FRESA", "36. HARLEY QUINN", "37. Bebe Dame", "38. Primera Cita", "39. Aviso Importante", "40. La Chona",
+  "41. LADY GAGA", "42. TULUM", "43. Ella Baila Sola", "44. La Bebe - Remix", "45. Me Niegro", "46. Criminal", "47. Dile Que Tu Me Quieres", "48. Escapate Conmigo", "49. Te Bote - Remix", "50. Corazon De Seda",
+  "51. Rakata", "52. Me Rehuso", "53. Dembow", "54. X", "55. Hasta El Amanecer", "56. El Perdon", "57. Perro Fiel", "58. Travesuras", "59. Es Un Secreto", "60. Si No Le Contesto",
+  "61. Por Que Te Demoras?", "62. Fanatica De Lo Sensual", "63. Hooka", "64. Candy", "65. Guatauba", "66. Freakytona", "67. Mi Vecinita", "68. Shaky Shaky - Remix", "69. Shaky Shaky", "70. Hula Hoop",
+  "71. Rompe", "72. Borra Cassette", "73. Chantaje", "74. Felices Los 4", "75. La Gozadera", "76. 24K Magic", "77. Ginza", "78. La Bachata", "79. 6 AM", "80. Tu Foto",
+  "81. El Farsante", "82. Ella Quiere Bailar - Remix", "83. Bonita", "84. Calypso", "85. China", "86. Que Va", "87. MINIMI", "88. Perdoname", "89. Salio El Sol", "90. Taboo",
+  "91. La Noche Mas Linda", "92. Pa' Que Retozen", "93. El Señor De La Noche", "94. Propuesta Indecente", "95. Still D.R.E", "96. Smooth Criminal", "97. They Don't Care About Us", "98. Uptown Funk", "99. 17 Años", "100. El Liston De Tu Pelo",
+  "101. La Bomba", "102. Lola", "103. Thriller", "104. La Quimica", "105. Menea Tu Chapa", "106. Tiempos De Plan B", "107. Rap God", "108. Harder, Better, Faster, Stronger", "109. LA FALDA", "110. LALA",
+  "111. La Chancleta", "112. Without Me", "113. Godzilla", "114. Besame", "115. Everbody Wants To Rule The World", "116. Bella", "117. My Name Is", "118. Mi Gente", "119. Agua", "120. Ella Quiere HMM... Haa... HMM...",
+  "121. Atrevete-Te-Te", "122. Darte Un Beso", "123. Beat It", "124. Lola", "125. La Diabla", "126. La Victima", "127. Corazon de Piedra", "128. Rey Sin Reyna", "129. El Beneficio De La Duda", "130. Tu No Vive Asi",
+  "131. Get Lucky", "132. Dillom: Bzrp Music Sessions, Vol. 9", "133. Quevedo: Bzrp Music Sessions, Vol. 52", "134. La Vencidad Del Vago", "135. Jalebi Baby", "136. Tu Boda", "137. Hecha Pa' Mi", "138. X SI VOLVEMOS", "139. NEL", "140. Si No Te Hubiera Conocido",
+  "141. Desesperados", "142. Ohnana", "143. UWAIE", "144. Grandes Ligas", "145. Chica Ideal", "146. Houdini", "147. QLONA", "148. Segun Quien", "149. FRESITA", "150. Titi Me Pregunto",
+  "151. PUNTO 40", "152. Vaquero - Remix", "153. Pepas", "154. El Envidioso", "155. Amor Platonico", "156. ¿Qué Te Parece?", "157. TE DESEO LO MEJOR", "158. Tu No Metes Cabra", "159. Yummy", "160. Şımarık",
+  "161. Mucho Pa Mi", "162. Pareja Del Año", "163. Bandoleros", "164. Tokyo Drift", "165. El Contagio", "166. Que Pedo", "167. Hubieramos", "168. Traiconera", "169. Bandida", "170. Mas Macarena",
+  "171. Macarena", "172. AMOR PROPIO", "173. Es Epico", "174. Visiones", "175. Tumba La Casa - Remix", "176. Swalla", "177. El Efecto", "178. El Tucanazo", "179. Ella Y Yo", "180. Permitame",
+  "181. QUEMA", "182. Uptown II", "183. Conspiraciones", "184. Choca", "185. AY MAMA", "186. Que Esta Pasando", "187. ME JALO", "188. Botella Tras Botella", "189. No Te Contaron Mal", "190. LOS CUADROS",
+  "191. Gangsta's Paradise", "192. En Privado", "193. Residente: Bzrp Music Sessions, Vol. 49", "194. Regalo De Dios", "195. Tusa", "196. The Bottom 3", "197. FE!N", "198. Una Lady Como Tu", "199. Por Esos Ojos", "200. Hip Hop Hooray",
+  "201. Shimmy Shimmy Ya", "202. INDUSTRY BABY", "203. Krippy Kush", "204. 7 DIAS", "205. LA PEOPLE", "206. GAVILAN II", "207. PRC", "208. PRESIDENTE", "209. Madonna", "210. A Travez Del Vaso"
+];
+;
 
   function elegirCanciones() {
     const seleccionadas = [];
@@ -113,7 +114,6 @@
   const canvas = document.getElementById('fondo');
   dibujarDegradado(canvas, '#095984', '#092d4a');
 
-  // Redibujar en caso de cambio de tamaño de ventana
   window.addEventListener('resize', () => {
     dibujarDegradado(canvas, '#095984', '#092d4a');
   });
